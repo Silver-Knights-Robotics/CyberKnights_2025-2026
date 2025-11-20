@@ -74,6 +74,10 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
     private DcMotor rightFrontDrive = null;
     private DcMotor rightBackDrive = null;
 
+    /* Someone should probably add another motor for the shooting.
+    maybe like this?
+    "private DcMotor :motorname: = null;
+     */
     @Override
     public void runOpMode() {
 
