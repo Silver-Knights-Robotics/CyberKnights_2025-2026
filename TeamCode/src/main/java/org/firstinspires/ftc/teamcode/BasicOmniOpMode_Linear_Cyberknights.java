@@ -64,7 +64,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 @TeleOp(name="Basic: Omni Linear OpMode", group="Linear OpMode")
-//@Disabled
+
 public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
 
     // Declare OpMode members for each of the 4 motors.
@@ -83,10 +83,10 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
 
         // Initialize the hardware variables. Note that the strings used here must correspond
         // to the names assigned during the robot configuration step on the DS or RC devices.
-        leftFrontDrive  = hardwareMap.get(DcMotor.class, "Left Front");
-        leftBackDrive  = hardwareMap.get(DcMotor.class, "Left Back");
-        rightFrontDrive = hardwareMap.get(DcMotor.class, "Right Front");
-        rightBackDrive = hardwareMap.get(DcMotor.class, "Right Back");
+        leftFrontDrive  = hardwareMap.get(DcMotor.class, "front_left_drive");
+        leftBackDrive  = hardwareMap.get(DcMotor.class, "back_left_drive");
+        rightFrontDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
+        rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
 
         // ########################################################################################
         // !!!            IMPORTANT Drive Information. Test your motor directions.            !!!!!
