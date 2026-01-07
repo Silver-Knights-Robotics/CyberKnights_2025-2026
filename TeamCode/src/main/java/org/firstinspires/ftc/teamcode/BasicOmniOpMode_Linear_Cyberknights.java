@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /*
@@ -74,7 +75,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
     private DcMotor rightFrontDrive = null;
     private DcMotor rightBackDrive = null;
     private DcMotor launcher = null;
-
+    private Servo servo1 = null;
 
     @Override
     public void runOpMode() {
@@ -85,6 +86,8 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         leftBackDrive  = hardwareMap.get(DcMotor.class, "back_left_drive");
         rightFrontDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
         rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
+//        change name once actually set up
+        servo1 = hardwareMap.get(Servo.class, "servo_name_here");
         launcher = hardwareMap.get(DcMotor.class, "launcher");
         // ########################################################################################
         // !!!            IMPORTANT Drive Information. Test your motor directions.            !!!!!
@@ -137,6 +140,15 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
                 rightBackPower  /= max;
             }
 
+            if(gamepad1.left_bumper) {
+                servo1.setPosition((servo1.getPosition() + 0.01));
+            }
+            if(gamepad1.right_bumper) {
+                servo1.setPosition((servo1.getPosition() - 0.01));
+            }
+
+
+
             // This is test code:
             //
             // Uncomment the following code to test your motor directions.
@@ -164,6 +176,8 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);
             telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
+            telemetry.addData("Servo Position", servo1.getPosition());
+            telemetry.addData("Launcher Power", launcher.getPower());
             telemetry.update();
         }
     }}
