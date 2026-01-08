@@ -86,7 +86,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         leftBackDrive  = hardwareMap.get(DcMotor.class, "back_left_drive");
         rightFrontDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
         rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
-//        change name once actually set up
+//        change name once actually set up in driver hub
         servo1 = hardwareMap.get(Servo.class, "servo_name_here");
         launcher = hardwareMap.get(DcMotor.class, "launcher");
         // ########################################################################################
