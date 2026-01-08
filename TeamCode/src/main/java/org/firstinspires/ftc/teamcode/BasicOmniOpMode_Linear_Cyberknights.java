@@ -165,7 +165,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             rightFrontPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
             rightBackPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
             */
-
+            launcher.setPower() = gamepad1.left_trigger ? 1.0 : 0.0;
             // Send calculated power to wheels
             leftFrontDrive.setPower(leftFrontPower);
             rightFrontDrive.setPower(rightFrontPower);
