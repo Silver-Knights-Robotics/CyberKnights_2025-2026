@@ -87,7 +87,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         rightFrontDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
         rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
 //        change name once actually set up in driver hub
-        servo1 = hardwareMap.get(Servo.class, "servo_name_here");
+        servo1 = hardwareMap.get(Servo.class, "servo1");
         launcher = hardwareMap.get(DcMotor.class, "launcher");
         // ########################################################################################
         // !!!            IMPORTANT Drive Information. Test your motor directions.            !!!!!
@@ -130,7 +130,13 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
                 lateral = 1;
 
             }
+            if (gamepad1.dpad_right){
+                lateral = 1;
 
+            }
+            if (gamepad1.dpad_right){
+                lateral = -1;
+            }
             // Combine the joystick requests for each axis-motion to determine each wheel's power.
             // Set up a variable for each drive wheel to save the power level for telemetry.
             double leftFrontPower  = axial + lateral + yaw;

@@ -80,7 +80,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
  * this OpMode to use those parameters.
  */
 @TeleOp(name = "Sensor: AndyMark IMU Orthogonal", group = "Sensor")
-public class SensorAndyMarkIMUOrthogonal_Cyberknights extends LinearOpMode
+public class    SensorAndyMarkIMUOrthogonal_Cyberknights extends LinearOpMode
 {
     // The AndyMark IMU sensor object
     private IMU imu;
