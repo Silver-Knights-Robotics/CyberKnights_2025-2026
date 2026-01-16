@@ -123,20 +123,14 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
 
             //bind dpad to lateral movement
             if (gamepad1.dpad_left){
-                lateral = -1;
-
-            }
-            if (gamepad1.dpad_left){
-                lateral = 1;
+                lateral = 0;
 
             }
             if (gamepad1.dpad_right){
                 lateral = 1;
 
             }
-            if (gamepad1.dpad_right){
-                lateral = -1;
-            }
+
             // Combine the joystick requests for each axis-motion to determine each wheel's power.
             // Set up a variable for each drive wheel to save the power level for telemetry.
             double leftFrontPower  = axial + lateral + yaw;
