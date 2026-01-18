@@ -119,15 +119,15 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             // POV Mode uses left joystick to go forward & strafe, and right joystick to rotate.
             double axial   = -gamepad1.left_stick_y;  // Note: pushing stick forward gives negative value
             double lateral =  gamepad1.left_stick_x;
-            double yaw     =  gamepad1.left_stick_x;
+            double yaw     =  gamepad1.right_stick_x;
 
             //bind dpad to lateral movement
             if (gamepad1.dpad_left){
-                lateral = 0;
+                lateral = 1;
 
             }
             if (gamepad1.dpad_right){
-                lateral = 1;
+                lateral = 0;
 
             }
 
@@ -151,10 +151,10 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             }
 
             if(gamepad1.left_bumper) {
-                servo1.setPosition((servo1.getPosition() + 0.01));
+                servo1.setPosition(0.75);
             }
             if(gamepad1.right_bumper) {
-                servo1.setPosition((servo1.getPosition() - 0.01));
+                servo1.setPosition(1);
             }
 
 
@@ -175,7 +175,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             rightFrontPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
             rightBackPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
             */
-            launcher.setPower(gamepad1.right_trigger);
+            launcher.setPower(gamepad1.right_trigger*0.75);
             // Send calculated power to wheels
             leftFrontDrive.setPower(leftFrontPower);
             rightFrontDrive.setPower(rightFrontPower);
