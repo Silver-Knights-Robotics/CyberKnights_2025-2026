@@ -76,7 +76,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
     private DcMotor rightBackDrive = null;
     private DcMotor launcher = null;
     private Servo servo1 = null;
-
+    private DcMotor launcher2 = null;
     @Override
     public void runOpMode() {
 
@@ -89,6 +89,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
 //        change name once actually set up in driver hub
         servo1 = hardwareMap.get(Servo.class, "servo1");
         launcher = hardwareMap.get(DcMotor.class, "launcher");
+        launcher2 = hardwareMap.get(DcMotor.class, "launcher2");
         // ########################################################################################
         // !!!            IMPORTANT Drive Information. Test your motor directions.            !!!!!
         // ########################################################################################
@@ -104,7 +105,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
         launcher.setDirection(DcMotor.Direction.REVERSE);
-
+        launcher2.setDirection(DcMotor.Direction.REVERSE);
         // Wait for the game to start (driver presses START)
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -176,6 +177,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             rightBackPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
             */
             launcher.setPower(gamepad1.right_trigger*0.75);
+            launcher2.setPower(gamepad1.right_trigger*0.75);
             // Send calculated power to wheels
             leftFrontDrive.setPower(leftFrontPower);
             rightFrontDrive.setPower(rightFrontPower);
