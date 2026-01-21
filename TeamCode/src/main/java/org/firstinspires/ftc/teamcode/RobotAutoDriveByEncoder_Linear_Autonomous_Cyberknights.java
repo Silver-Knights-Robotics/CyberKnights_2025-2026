@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -104,7 +105,7 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // When run, this OpMode should start both motors driving forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         launcher.setDirection(DcMotor.Direction.REVERSE);
 
@@ -128,11 +129,13 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  -20,  20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(DRIVE_SPEED,  20,  20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
         leftBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        start launcher and wait for 1.5 seconds
         launcher.setPower(0.75);
         sleep(1500);
+//        open servo gate to launch ball and wait 1 second
         servo1.setPosition(0.75);
         sleep(1000);
 //        encoderDrive(TURN_SPEED,   12, -12, 4.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
@@ -196,6 +199,7 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
             leftDrive.setPower(0);
             rightDrive.setPower(0);
             launcher.setPower(0);
+//            reset the servo
             servo1.setPosition(1);
             // Turn off RUN_TO_POSITION
             leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
