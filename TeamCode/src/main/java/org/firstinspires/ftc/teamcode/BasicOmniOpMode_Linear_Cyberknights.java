@@ -151,10 +151,10 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
                 rightBackPower  /= max;
             }
 
-            if(gamepad1.left_bumper) {
+            if(gamepad2.left_bumper) {
                 servo1.setPosition(0.75);
             }
-            if(gamepad1.right_bumper) {
+            if(gamepad2.right_bumper) {
                 servo1.setPosition(1);
             }
 
@@ -177,8 +177,8 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             rightBackPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
             */
 
-            launcher.setPower(gamepad1.right_trigger*0.75);
-            launcher2.setPower(gamepad1.right_trigger*0.75);
+            launcher.setPower(gamepad2.right_trigger*0.75);
+            launcher2.setPower(gamepad2.right_trigger*0.75);
             // Send calculated power to wheels
             leftFrontDrive.setPower(leftFrontPower);
             rightFrontDrive.setPower(rightFrontPower);
