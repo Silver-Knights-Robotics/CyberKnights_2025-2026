@@ -105,7 +105,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
         launcher.setDirection(DcMotor.Direction.REVERSE);
-        launcher2.setDirection(DcMotor.Direction.REVERSE);
+        launcher2.setDirection(DcMotor.Direction.FORWARD);
         // Wait for the game to start (driver presses START)
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -176,6 +176,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             rightFrontPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
             rightBackPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
             */
+
             launcher.setPower(gamepad1.right_trigger*0.75);
             launcher2.setPower(gamepad1.right_trigger*0.75);
             // Send calculated power to wheels
