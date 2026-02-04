@@ -71,7 +71,7 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
     private DcMotor         leftDrive   = null;
     private DcMotor         rightDrive, leftBackDrive, rightBackDrive;
     private DcMotor         launcher = null;
-    private Servo servo1;
+    private Servo           servo1;
     private ElapsedTime     runtime = new ElapsedTime();
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.
@@ -129,15 +129,21 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  20,  20, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(DRIVE_SPEED,-10,-10,5.0);
+        sleep(1500);
+        encoderDrive(TURN_SPEED, 24,-24,5.0);
+        sleep(1000);
+        encoderDrive(DRIVE_SPEED,  15,  15, 5.0);
+//        sleep(1000);
+        // S1: Forward 47 Inches with 5 Sec timeout
         leftBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //        start launcher and wait for 1.5 seconds
-        launcher.setPower(0.75);
-        sleep(1500);
+//        launcher.setPower(0.75);
+//        sleep(1500);
 //        open servo gate to launch ball and wait 1 second
-        servo1.setPosition(0.75);
-        sleep(1000);
+//        servo1.setPosition(0.75);
+//        sleep(1000);
 //        encoderDrive(TURN_SPEED,   12, -12, 4.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
 //        encoderDrive(DRIVE_SPEED, -24, -24, 4.0);  // S3: Reverse 24 Inches with 4 Sec timeout
 
