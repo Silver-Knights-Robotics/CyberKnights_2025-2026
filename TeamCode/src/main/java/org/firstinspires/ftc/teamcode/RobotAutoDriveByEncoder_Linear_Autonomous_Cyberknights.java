@@ -69,9 +69,12 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
 
     /* Declare OpMode members. */
     private DcMotor         leftDrive   = null;
-    private DcMotor         rightDrive, leftBackDrive, rightBackDrive;
+    private DcMotor         rightDrive = null;
+    private DcMotor         leftBackDrive = null;
+    private DcMotor         rightBackDrive = null;
     private DcMotor         launcher = null;
-    private Servo           servo1;
+    private DcMotor         launcher2 = null;
+    private Servo           servo1 = null;
     private ElapsedTime     runtime = new ElapsedTime();
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.
@@ -101,22 +104,22 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
 
         servo1 = hardwareMap.get(Servo.class, "servo1");
         launcher = hardwareMap.get(DcMotor.class, "launcher");
-
+        launcher2 = hardwareMap.get(DcMotor.class, "launcher2");
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // When run, this OpMode should start both motors driving forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         launcher.setDirection(DcMotor.Direction.REVERSE);
-
+        launcher2.setDirection(DcMotor.Direction.FORWARD);
         leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Starting at",  "%7d :%7d",
@@ -136,8 +139,8 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
         encoderDrive(DRIVE_SPEED,  15,  15, 5.0);
 //        sleep(1000);
         // S1: Forward 47 Inches with 5 Sec timeout
-        leftBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        leftBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        rightBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //        start launcher and wait for 1.5 seconds
 //        launcher.setPower(0.75);
 //        sleep(1500);
