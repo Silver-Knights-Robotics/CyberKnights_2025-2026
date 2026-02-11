@@ -83,7 +83,7 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
     // For example, use a value of 2.0 for a 12-tooth spur gear driving a 24-tooth spur gear.
     // This is gearing DOWN for less speed and more torque.
     // For gearing UP, use a gear ratio less than 1.0. Note this will affect the direction of wheel rotation.
-    static final double     COUNTS_PER_MOTOR_REV    = 28 ;    // eg: TETRIX Motor Encoder
+    static final double     COUNTS_PER_MOTOR_REV    = 560 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 1 ;     // No External Gearing.
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -99,8 +99,8 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
         rightDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
 
 
-        leftBackDrive  = hardwareMap.get(DcMotor.class, "back_left_drive");
-        rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
+//        leftBackDrive  = hardwareMap.get(DcMotor.class, "back_left_drive");
+//        rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
 
         servo1 = hardwareMap.get(Servo.class, "servo1");
         launcher = hardwareMap.get(DcMotor.class, "launcher");
