@@ -84,7 +84,7 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
     // This is gearing DOWN for less speed and more torque.
     // For gearing UP, use a gear ratio less than 1.0. Note this will affect the direction of wheel rotation.
     static final double     COUNTS_PER_MOTOR_REV    = 560 ;    // eg: TETRIX Motor Encoder
-    static final double     DRIVE_GEAR_REDUCTION    = 1 ;     // No External Gearing.
+    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // No External Gearing.
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
                                                       (WHEEL_DIAMETER_INCHES * 3.1415);
@@ -97,7 +97,6 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
         // Initialize the drive system variables.
         leftDrive  = hardwareMap.get(DcMotor.class, "front_left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
-
 
 //        leftBackDrive  = hardwareMap.get(DcMotor.class, "back_left_drive");
 //        rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
