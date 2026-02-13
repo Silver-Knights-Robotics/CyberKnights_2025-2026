@@ -102,7 +102,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         // Keep testing until ALL the wheels move the robot forward when you push the left joystick forward.
         leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
         rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
         launcher.setDirection(DcMotor.Direction.REVERSE);
         launcher2.setDirection(DcMotor.Direction.FORWARD);
