@@ -106,7 +106,7 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
         launcher.setDirection(DcMotor.Direction.REVERSE);
-        launcher2.setDirection(DcMotor.Direction.FORWARD);
+        launcher2.setDirection(DcMotor.Direction.REVERSE);
         // Wait for the game to start (driver presses START)
         telemetry.addData("Status", "Initialized");
         telemetry.update();
