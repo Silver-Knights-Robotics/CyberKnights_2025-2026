@@ -119,8 +119,8 @@ public class BasicOmniOpMode_Linear_Cyberknights extends LinearOpMode {
             double max;
 
             // POV Mode uses left joystick to go forward & strafe, and right joystick to rotate.
-            double axial   = gamepad1.right_stick_x;  // Note: pushing stick forward gives negative value
-            double lateral =  gamepad1.left_stick_x;
+            double axial   = -gamepad1.right_stick_x;  // Note: pushing stick forward gives negative value
+            double lateral =  -gamepad1.left_stick_x;
             double yaw     =  gamepad1.left_stick_y;
 
             //bind dpad to lateral movement
