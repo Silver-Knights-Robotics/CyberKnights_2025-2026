@@ -30,10 +30,8 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -63,9 +61,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Robot: Auto Drive By Encoder Blue", group="Robot")
+@Autonomous(name="Robot: Auto Drive By Encoder Behind Goal", group="Robot")
 
-public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends LinearOpMode {
+public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknightsbehindgoal extends LinearOpMode {
 
     /* Declare OpMode members. */
     private DcMotor         leftDrive   = null;
@@ -132,12 +130,19 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 //        move back
-        encoderDrive(DRIVE_SPEED,-5,-5,5.0);
+        launcher.setPower(.75);
+        launcher2.setPower(.75);
+        encoderDrive(DRIVE_SPEED,-42,-42,5.0);
         sleep(1500);
-        encoderDrive(TURN_SPEED, 24,-24,5.0);
+        launcher.setPower(.75);
+        launcher2.setPower(.75);
         sleep(1000);
-//        encoderDrive(DRIVE_SPEED,  15,  15, 5.0);
-//        sleep(1000);
+        launcher.setPower(.75);
+        launcher2.setPower(.75);
+        servo1.setPosition(0.65);
+        sleep(1500);
+        encoderDrive(DRIVE_SPEED,45,45,5.0);
+        sleep(1500);
         // S1: Forward 47 Inches with 5 Sec timeout
 //        leftBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //        rightBackDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -208,8 +213,9 @@ public class RobotAutoDriveByEncoder_Linear_Autonomous_Cyberknights extends Line
             leftDrive.setPower(0);
             rightDrive.setPower(0);
             launcher.setPower(0);
+            launcher2.setPower(0);
 //            reset the servo
-            servo1.setPosition(1);
+//            servo1.setPosition(1);
             // Turn off RUN_TO_POSITION
             leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
